@@ -1,0 +1,4 @@
+.DS_Store
+streamlit/project/.streamlit/secrets.toml
+streamlit/project/data
+*.ipynb
