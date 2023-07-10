@@ -181,7 +181,24 @@ def make_sepia(file):
 
     return new_file
     
+def hide_everything_except_faces(file):
+    faces = detect_face(file)
+    img = cv2.imread(file)
+    filename, root_path = split_path_name(file)
 
+    # create a new image with the same size as the original
+    new_img = np.zeros(img.shape, np.uint8)
+    new_img[:, :] = (0, 255, 0)
+
+    # crop each face
+    for i, face in enumerate(faces):
+        x, y, w, h = face
+        new_img[y:y+h, x:x+w] = img[y:y+h, x:x+w]
+
+    new_file = root_path + "tmp/" + filename + "_faces_only.jpg"
+    cv2.imwrite(new_file, new_img)
+
+    return new_file
 
 def new_game():
     # delete jpg content of tmp folder

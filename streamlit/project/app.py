@@ -25,9 +25,11 @@ def display_image():
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["Random", "Puzzle", "Saturated", "Portraits", "Original"])
 
     with tab1:
-        sketch = lib.make_sketch(file)
-        st.image(sketch, caption="random", use_column_width=True)
+        # sketch = lib.make_sketch(file)
+        # st.image(sketch, caption="random", use_column_width=True)
 
+        hide_everything_except_faces = lib.hide_everything_except_faces(file)
+        st.image(hide_everything_except_faces, caption="faces", use_column_width=True)
       
     with tab2:
         puzzle = lib.make_puzzle(file)
