@@ -8,4 +8,5 @@ plotly
 numpy
 opencv-python-headless
 requests
-piexif
+# piexif
+exif
